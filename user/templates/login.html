@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
-      <title>教务管理系统</title>
 
-    <form method = 'post' enctype="multipart/form-data">
-      <input id="username" name="username" type="text" placeholder="请输入用户名">
-      <input id="password" name="password" type="password" placeholder="请输入密码">
+<head>
+  <title>登录 | 教务管理系统</title>
+  <!-- 引入 Bootstrap -->
+  <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../static/css/background.css">
+  <script src="../../static/js/jquery.min.js"></script>
+  <script src="../../static/js/bootstrap.min.js"></script>
+</head>
 
-      {% csrf_token %}
-      {% if error %}
+<body>
+  <div class="page-header">
+    <br>
+    <h1 class="text-center">教务管理系统<small>&nbsp;登录</small></h1>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="row"><br><br></div>
+    <div class="row">
+      <div class="col-md-4">&nbsp;</div>
+      <div class="col-md-4">
+        <form class="form-horizontal" method='post' enctype="multipart/form-data">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">账号:</label>
+            <div class="col-sm-10">
+              <input class="form-control" id="username" name="username" type="text" placeholder="请输入用户名">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">密码:</label>
+            <div class="col-sm-10">
+              <input class="form-control" id="password" name="password" type="password" placeholder="请输入密码">
+            </div>
+          </div>
+          {% csrf_token %}
+          {% if error %}
           {{ message }}
-      {% endif %}
-    <input type="submit" class="btn btn-primary btn-block btn-lg" value="登陆">
-      </form>
+          {% endif %}
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" class="btn btn-default" value="登陆">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="row" style="width:100%;position:fixed;left:0; bottom:25px;z-index:-1;">
+      <address class="text-center">
+        <strong>教务管理系统 | </strong>软件工程实验第11组;&nbsp;
+        <strong>电话:</strong>(123) 456-7890;&nbsp;
+        <strong>邮箱:</strong><a href="mailto:#">demo@163.com</a>;&nbsp;
+        <strong>地址:</strong>安徽省,合肥市,安徽大学磬苑校区
+      </address>
+    </div>
+  </div>
+
+</body>
+
 </html>
