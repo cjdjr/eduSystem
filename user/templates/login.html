@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+      <title>教务管理系统</title>
+
+    <form method = 'post' enctype="multipart/form-data">
+      <input id="username" name="username" type="text" placeholder="请输入用户名">
+      <input id="password" name="password" type="password" placeholder="请输入密码">
+
+      {% csrf_token %}
+      {% if error %}
+          {{ message }}
+      {% endif %}
+    <input type="submit" class="btn btn-primary btn-block btn-lg" value="登陆">
+      </form>
+</html>
