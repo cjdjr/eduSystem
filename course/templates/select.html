@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>主页 | 教务管理系统</title>
+  <!-- 引入 Bootstrap -->
+  <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../static/css/background.css">
+  <script src="../../static/js/jquery.min.js"></script>
+  <script src="../../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">&nbsp;</div>
+      <div class="col-md-10">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">教务管理系统</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li><a href="#">选课</a></li>
+                <li><a href="#">课表</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">查询信息 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">成绩</a></li>
+                    <li><a href="#">已选课程</a></li>
+                    <li><a href="#">培养方案</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">辅修1</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">辅修2</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> 个人信息</a></li>
+                <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div>
+            <form method="post">
+                {%csrf_token%}
+                <!-- Table -->
+                <table class="table table-hover">
+                    <tr>
+                        <td>课程名称</td>
+                        <td>课程学分</td>
+                        <td>授课老师的id</td>
+                        <td>上课时间</td>
+                        <td>上课地点</td>
+                        <td>开课院系</td>
+                        <td>课程代码</td>
+                        <td>选择</td>
+                    </tr>
+                    {% for item in course_list %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.score }}</td>
+                        <td>{{ item.teacher_id }}</td>
+                        <td>{{ item.time }}</td>
+                        <td>{{ item.place }}</td>
+                        <td>{{ item.school }}</td>
+                        <td>{{ item.code }}</td>
+                        <td><input type="checkbox" name="checkbox_list" value={{item.id}}></td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+
+                <input type="submit">
+            </form>
+        </div>
+
+        <div>
+          <div class="row" style="width:100%;position:fixed;left:0; bottom:25px;z-index:-1;">
+            <address class="text-center">
+              <strong>教务管理系统 | </strong>软件工程实验第11组;&nbsp;
+              <strong>电话:</strong>(123) 456-7890;&nbsp;
+              <strong>邮箱:</strong><a href="mailto:#">demo@163.com</a>;&nbsp;
+              <strong>地址:</strong>安徽省,合肥市,安徽大学磬苑校区
+            </address>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">&nbsp;</div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
