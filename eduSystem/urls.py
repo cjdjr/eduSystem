@@ -16,7 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 import course
+
+from django.urls import path
+from django.conf.urls import url, include
+import user.views as userviews
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^index/$', userviews.index),
     path('course/', include('course.urls')),
+    url(r'^$', userviews.login),
+    url(r'^logout/$', userviews.logout),
+    url(r'^login/$', userviews.login),
+
+
+    url(r'^rbac/', include('rbac.urls')),
+
 ]
