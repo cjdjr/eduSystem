@@ -1,66 +1,39 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>登录 | 教务管理系统</title>
-  <!-- 引入 Bootstrap -->
-  <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../static/css/background.css">
-  <script src="../../static/js/jquery.min.js"></script>
-  <script src="../../static/js/bootstrap.min.js"></script>
+  {% include "head.html" %}
 </head>
-
 <body>
-  <div class="page-header">
-    <br>
-    <h1 class="text-center">教务管理系统<small>&nbsp;登录</small></h1>
-    <br>
-  </div>
-
-  <div class="container">
-    <div class="row"><br><br></div>
-    <div class="row">
-      <div class="col-md-4">&nbsp;</div>
-      <div class="col-md-4">
-        <form class="form-horizontal" method='post' enctype="multipart/form-data">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">账号:</label>
-            <div class="col-sm-10">
-              <input class="form-control" id="username" name="username" type="text" placeholder="请输入用户名">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">密码:</label>
-            <div class="col-sm-10">
-              <input class="form-control" id="password" name="password" type="password" placeholder="请输入密码">
-            </div>
-          </div>
-          {% csrf_token %}
-          {% if error %}
-          {{ message }}
-          {% endif %}
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <input type="submit" class="btn btn-default" value="登陆">
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-4"></div>
-    </div>
-  </div>
-
-  <div>
-    <div class="row" style="width:100%;position:fixed;left:0; bottom:25px;z-index:-1;">
-      <address class="text-center">
-        <strong>教务管理系统 | </strong>软件工程实验第11组;&nbsp;
-        <strong>电话:</strong>(123) 456-7890;&nbsp;
-        <strong>邮箱:</strong><a href="mailto:#">demo@163.com</a>;&nbsp;
-        <strong>地址:</strong>安徽省,合肥市,安徽大学磬苑校区
-      </address>
-    </div>
-  </div>
-
+<div class="jumbotron text-center touming" style="margin-top:0;">
+  <h2><span class="oi oi-book"></span>&nbsp;&nbsp;欢迎使用安徽大学教务系统</h2>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="m-auto" style="height: auto;width: 400px">
+			<div class="card text-dark touming">
+				<div class="card-body">
+                    <img src="/static/images/ahu_login.png" style="height: auto;width: 360px">
+                    <br/><br/>
+				<form class="form bs-example bs-example-form" action="", method="post">
+                    {% csrf_token %}
+					<div class="form-group">
+						<p ><span class="oi oi-person"></span><strong>&nbsp;&nbsp;用户名:</strong></p>
+						<input class="form-control input-lg" name="username" type="text" placeholder="请输入用户名">
+					</div>
+					<div class="form-group">
+						<p><span class="oi oi-lock-locked"></span><strong>&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码:</strong></p>
+						<input class="form-control input-lg" name="password" type="password" placeholder="请输入密码">
+					</div>
+					<label><a href="/user/findPassword/"><strong>忘记密码？</strong></a></label>
+                    <label>{{ tips }}</label>
+                    <button type="submit" class="btn btn-block btn-primary">登&nbsp;&nbsp;录</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<br/><br/>
+</div>
+{%  include "bottom.html" %}
 </body>
-
 </html>

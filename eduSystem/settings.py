@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'course',
     'rbac.apps.RbacConfig',
     'user.apps.UserConfig',
+    'crispy_forms',
+    'xadmin',
 ]
 
 MIDDLEWARE = [

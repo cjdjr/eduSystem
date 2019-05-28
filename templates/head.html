@@ -1,0 +1,54 @@
+  <meta charset = "utf-8">
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link href="/static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+  <script src="/static/js/jquery3.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/Highcharts/code/highcharts.js"></script>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bg-img {
+            bottom: 0;
+            left: 0;
+            width:100%;
+            height:100%;
+            min-width: 1000px;
+            z-index:-10;
+            zoom: 1;
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-position:right bottom;
+        }
+      .touming{
+            filter：alpha(opacity=40);
+            background-color:rgba(255,255,255,0.4);
+        }
+    </style>
+
+  <script type="text/javascript">
+    //<!CDATA[
+        var bodyBgs = [];
+        bodyBgs[0] = "/static/images/background0.jpg";
+        bodyBgs[1] = "/static/images/background1.jpg";
+        bodyBgs[2] = "/static/images/background2.jpg";
+        bodyBgs[3] = "/static/images/background3.jpg";
+        bodyBgs[4] = "/static/images/background4.jpg";
+        bodyBgs[5] = "/static/images/background5.jpg";
+
+        var randomBgIndex = Math.round( Math.random() * 5 );
+
+    //输出随机的背景图
+        document.write('<style>body{background-image:url(' + bodyBgs[randomBgIndex] + ');}</style>');
+        $(document).ready(function(){
+                $('body').addClass("bg-img")
+        });
+    //]]>
+    </script>

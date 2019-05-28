@@ -14,6 +14,10 @@ class Student(models.Model):
     major = models.CharField(max_length=32, blank=False, null=False)
     cclass = models.CharField(max_length=32, blank=False, null=False)
 
+    class Meta:
+        verbose_name = '学生资料管理'
+        verbose_name_plural = verbose_name
+
     def __str__(self):
         return "Student " + str(self.id)
 
@@ -32,6 +36,10 @@ class Teacher(models.Model):
     rate_times = models.IntegerField(blank=False, null=False, default=1)
     rate = models.FloatField(default=10.0)
 
+    class Meta:
+        verbose_name = '教师资料管理'
+        verbose_name_plural = verbose_name
+
     def __str__(self):
         return "Teacher " + str(self.id)
 
@@ -42,6 +50,10 @@ class Admin(models.Model):
     """
     phone = models.CharField(max_length=32, blank=False, null=False)
     role = models.CharField(max_length=32, blank=False, null=False)
+
+    class Meta:
+        verbose_name = '管理员资料管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return "Admin " + str(self.id)

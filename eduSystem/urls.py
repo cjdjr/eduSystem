@@ -20,16 +20,15 @@ import course
 from django.urls import path
 from django.conf.urls import url, include
 import user.views as userviews
+import xadmin
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^index/$', userviews.index),
+    path('admin/', xadmin.site.urls),
+    path('index/', userviews.index),
     path('course/', include('course.urls')),
-    url(r'^$', userviews.login),
-    url(r'^logout/$', userviews.logout),
-    url(r'^login/$', userviews.login),
-
-
-    url(r'^rbac/', include('rbac.urls')),
+    path('', userviews.login),
+    path('logout/', userviews.logout),
+    path('login/', userviews.login),
+    path('rbac/', include('rbac.urls')),
 
 ]
